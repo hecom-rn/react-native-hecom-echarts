@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, WebView, Platform } from 'react-native';
+import { Platform, View, WebView } from 'react-native';
 import PropTypes from 'prop-types';
 
 export default class Echart extends React.Component {
@@ -11,7 +11,7 @@ export default class Echart extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            height: 200,
+            height: props.height || 200,
         };
     }
 
