@@ -53,7 +53,7 @@ export default class Echart extends React.Component {
     }
 
     static toString(obj) {
-        return JSON.stringify(obj, function(val) {
+        return JSON.stringify(obj, function (val) {
             if (typeof val === 'function') {
                 return `~--demo--~${val}~--demo--~`;
             }
