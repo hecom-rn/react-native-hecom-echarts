@@ -39,9 +39,6 @@ export default class Echart extends React.Component {
                 <WebView
                     bounces={false}
                     ref={ref => this.chart = ref}
-                    javaScriptEnabled={true}
-                    scrollEnabled={false}
-                    useWebKit={true}
                     originWhitelist={['*']}
                     injectedJavaScript={Echart.renderChart(this.props.option, this.state.height)}
                     scalesPageToFit={Platform.OS === 'android'}
