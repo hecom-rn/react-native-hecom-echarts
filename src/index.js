@@ -49,14 +49,27 @@ export default class Echart extends React.Component {
         );
     }
 
+    /**
+     * 该函数可以序列化function
+     */
     static toString(obj) {
-        return JSON.stringify(obj, function (val) {
+        const demo = '~--demo--~';
+        let result = JSON.stringify(obj, function (key, val) {
             if (typeof val === 'function') {
-                return `~--demo--~${val}~--demo--~`;
+                return `${demo}${val}${demo}`;
             }
             return val;
-        }).replace('\"~--demo--~', '').replace('~--demo--~\"', '').replace(/\\n/g, '').replace(/\\\"/g,"\"");
-    } 
+        });
+        do {
+            // 最后一个replace将release模式中莫名生成的\"转换成"
+            result = result
+                .replace('\"~--demo--~', '')
+                .replace('~--demo--~\"', '')
+                .replace(/\\n/g, '')
+                .replace(/\\\"/g, '\"');
+        } while (result.indexOf(demo) >= 0);
+        return result;
+    }
 
     static renderChart(option, height) {
         return `

@@ -1,6 +1,6 @@
 {
   "name": "react-native-hecom-echarts",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "description": "A bundle of echarts for react-native",
   "main": "src/index.js",
