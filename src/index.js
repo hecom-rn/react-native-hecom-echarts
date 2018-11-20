@@ -79,7 +79,7 @@ export default class Echart extends React.Component {
             var myChart = echarts.init(document.getElementById('main'));
             var optionStr = ${Echart.toString(option)};
             myChart.setOption(optionStr);
-            myChart.on('click', function(param) {
+            myChart.on('click', function(params) {
                 var seen = [];
                 var paramsString = JSON.stringify(params, function(key, val) {
                     if (val != null && typeof val == 'object') {
