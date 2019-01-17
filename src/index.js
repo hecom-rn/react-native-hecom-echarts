@@ -40,7 +40,8 @@ export default class Echart extends React.Component {
                     bounces={false}
                     ref={ref => this.chart = ref}
                     originWhitelist={['*']}
-		            scrollEnabled={false}
+                    scrollEnabled={false}
+                    style={{backgroundColor: 'transparent'}}
                     injectedJavaScript={Echart.renderChart(this.props.option, this.state.height)}
                     scalesPageToFit={Platform.OS === 'android'}
                     source={Platform.OS === 'ios' ? require('./tpl.html') : {uri: 'file:///android_asset/echarts/tpl.html'}}
