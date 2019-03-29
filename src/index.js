@@ -44,7 +44,7 @@ export default class Echart extends React.Component {
                     style={{backgroundColor: 'transparent'}}
                     injectedJavaScript={Echart.renderChart(this.props.option, this.state.height)}
                     scalesPageToFit={Platform.OS === 'android'}
-                    source={Platform.OS === 'ios' ? require('./tpl.html') : {uri: 'file:///android_asset/echarts/tpl.html'}}
+                    source={Platform.OS === 'ios' ? require('./tpl.html') : {uri: 'file:///android_asset/echarts/tpl.html', baseUrl:''}}
                     onMessage={event => this.props.onPress ? this.props.onPress(JSON.parse(event.nativeEvent.data)) : null}
                 />
             </View>
