@@ -44,7 +44,10 @@ export default class Echart extends React.Component {
                     style={{backgroundColor: 'transparent'}}
                     injectedJavaScript={Echart.renderChart(this.props.option, this.state.height)}
                     scalesPageToFit={Platform.OS === 'android'}
-                    source={Platform.OS === 'ios' ? require('./tpl.html') : {uri: 'file:///android_asset/echarts/tpl.html', baseUrl:''}}
+                    source={Platform.OS === 'ios' ? require('./tpl.html') : {
+                        uri: 'file:///android_asset/echarts/tpl.html',
+                        baseUrl: ''
+                    }}
                     onMessage={event => this.props.onPress ? this.props.onPress(JSON.parse(event.nativeEvent.data)) : null}
                 />
             </View>
@@ -70,6 +73,7 @@ export default class Echart extends React.Component {
                 .replace(/\\n/g, '')
                 .replace(/\\\"/g, '\"');
         } while (result.indexOf(demo) >= 0);
+        result = unescape(result.replace(/\\u/g, "%u"));
         return result;
     }
 
